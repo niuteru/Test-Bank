@@ -1,7 +1,8 @@
-from typing import Optional
+from typing import Optional, Any, Callable
 
 import allure
 
+from main.api.constans.endpoint import Endpoint
 from src.main.api.configs.config import Config
 from src.main.api.foundation.http_requester import HttpRequester
 from src.main.api.foundation.requesters.crud_requester import CrudRequester
@@ -9,7 +10,7 @@ from src.main.api.models.base_model import BaseModel
 
 
 class ValidateCrudRequester(HttpRequester):
-    def __init__(self, response_spec, request_spec, endpoint):
+    def __init__(self, response_spec: Callable[...,Any], request_spec: dict, endpoint: Endpoint):
         super().__init__(response_spec, request_spec, endpoint)
         self.crud_requester = CrudRequester(
             request_spec=request_spec,

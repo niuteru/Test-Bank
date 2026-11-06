@@ -2,6 +2,7 @@ import allure
 import pytest
 from requests import Session
 
+from main.api.classes.api_manager import ApiManager
 from src.main.api.constans.role import Roles
 from src.main.api.db.crud.user_crud import UserCrudDb as User
 from src.main.api.fixtures.db_fixture import db_session
@@ -18,12 +19,12 @@ class TestCreateUser:
             RandomModelGenerator.generate(CreateUserRequest)
         ]
     )
-    def test_create_user_valid(self, api_manager,db_session: Session, create_user_request):
+    def test_create_user_valid(self, api_manager: ApiManager,db_session: Session, create_user_request: CreateUserRequest):
         response = api_manager.admin_steps.create_user(create_user_request)
         user_from_db = User.get_user_by_username(db_session, create_user_request.username)
 
-        assert create_user_request.username == response.username
-        assert create_user_request.role == response.role
+        assert create_user_request.username == response.username, "Имя пользователя не совпадает с именем в запросе"
+        assert create_user_request.role == response.role, "Роль пользователя не совпадает с ролью в запросе"
         assert create_user_request.username == user_from_db.username, "Пользователь не найден, ошибка"
 
         AttachmentHelper.attach_orm(
@@ -46,7 +47,7 @@ class TestCreateUser:
             ("Max1", "Pas!sword")
         ]
     )
-    def test_create_user_invalid(self, username, password, api_manager, db_session: Session):
+    def test_create_user_invalid(self, username: str, password: str, api_manager: ApiManager, db_session: Session):
         create_user_request = CreateUserRequest(username=username,password=password,role=Roles.USER.value)
         api_manager.admin_steps.create_invalid_user(create_user_request)
         user_from_db = User.get_user_by_username(db_session, create_user_request.username)

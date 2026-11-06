@@ -6,14 +6,14 @@ from src.main.api.models.login_user_response import LoginUserResponse
 
 class RequestSpecs:
     @staticmethod
-    def base_headers():
+    def base_headers() -> dict:
         return {
             "Content-Type": "application/json",
             "accept": "application/json"
         }
 
     @staticmethod
-    def auth_headers(username: str, password: str):
+    def auth_headers(username: str, password: str) -> dict:
         request = LoginUserRequest(username=username, password=password)
         headers = RequestSpecs.base_headers()
         response = requests.post(

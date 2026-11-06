@@ -1,0 +1,13 @@
+# IDE
+.idea/
+
+# Виртуальное окружение
+.venv/
+
+# Результаты тестов Allure
+allure-results/
+allure-report/
+
+# Кэш Python
+__pycache__/
+*.pyc
