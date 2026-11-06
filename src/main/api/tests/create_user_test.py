@@ -22,8 +22,8 @@ class TestCreateUser:
         response = api_manager.admin_steps.create_user(create_user_request)
         user_from_db = User.get_user_by_username(db_session, create_user_request.username)
 
-        assert create_user_request.username == response.username
-        assert create_user_request.role == response.role
+        assert create_user_request.username == response.username, "Имя пользователя не совпадает с именем в запросе"
+        assert create_user_request.role == response.role, "Роль пользователя не совпадает с ролью в запросе"
         assert create_user_request.username == user_from_db.username, "Пользователь не найден, ошибка"
 
         AttachmentHelper.attach_orm(

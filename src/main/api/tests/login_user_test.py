@@ -10,16 +10,16 @@ class TestLoginUser:
         response = api_manager.admin_steps.login_user(login_admin_request)
         user_from_db = User.get_user_by_username(db_session, login_admin_request.username)
 
-        assert user_from_db is not None
-        assert user_from_db.username == login_admin_request.username
-        assert response.user.username == login_admin_request.username
-        assert response.user.role == Roles.ADMIN
+        assert user_from_db is not None, "Пользователя нет в бд"
+        assert user_from_db.username == login_admin_request.username, "Имя в бд не совпадает с именем в запросе"
+        assert response.user.username == login_admin_request.username, "Имя в ответе не совпадает с именем в запросе"
+        assert response.user.role == Roles.ADMIN, "Роль админа не соответствует переданной роли"
 
     def test_login_user(self, api_manager,db_session: Session, login_user_request):
         response = api_manager.admin_steps.login_user(login_user_request)
         user_from_db = User.get_user_by_username(db_session, login_user_request.username)
 
-        assert user_from_db is not None
-        assert user_from_db.username == login_user_request.username
-        assert response.user.username == login_user_request.username
-        assert response.user.role == Roles.USER
+        assert user_from_db is not None, "Пользователя нет в бд"
+        assert user_from_db.username == login_user_request.username, "Имя в бд не совпадает с именем в запросе"
+        assert response.user.username == login_user_request.username, "Имя в ответе не совпадает с именем в запросе"
+        assert response.user.role == Roles.USER, "Роль пользователя не соответствует переданной роли"

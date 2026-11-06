@@ -18,7 +18,8 @@ class TestUserDeposit:
 
         assert transaction_info_from_db.transaction_type == TransactionType.DEPOSIT,\
             "Тип транзакции не соответствует проведенной операции"
-        assert response.balance == user_deposit_request.amount
+        assert response.balance == user_deposit_request.amount, ("Баланс после ответа не соответсвует"
+                                                                 " сумме переданной в запрос")
 
         AttachmentHelper.attach_orm(
             transaction_info_from_db,

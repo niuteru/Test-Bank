@@ -18,7 +18,7 @@ class TestUserTransfer:
 
         assert transaction_info_from_db.transaction_type == TransactionType.TRANSFER, \
             "Тип транзакции не соответствует проведенной операции"
-        assert response.fromAccountIdBalance == 0
+        assert response.fromAccountIdBalance == 0, "Перевод не был осуществлен, баланс не изменился"
 
         AttachmentHelper.attach_orm(
             transaction_info_from_db,
