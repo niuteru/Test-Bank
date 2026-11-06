@@ -1,0 +1,1 @@
+Credit(id=590, account_id=1522, amount=5000.0, term_months=12, balance=-5000.0, created_at=2026-11-06 10:52:33)
