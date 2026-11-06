@@ -1,13 +1,16 @@
 import pytest
 
 from sqlalchemy.orm import Session
+
+from main.api.classes.api_manager import ApiManager
+from main.api.models.login_user_request import LoginUserRequest
 from src.main.api.db.crud.account_crud import AccountCrud as Account
 from src.main.api.utils.allure.attachment_helper import AttachmentHelper
 
 @pytest.mark.api
 class TestCreateAccount:
 
-    def test_create_account(self, api_manager,db_session: Session, login_user_request):
+    def test_create_account(self, api_manager: ApiManager,db_session: Session, login_user_request: LoginUserRequest):
         response = api_manager.user_steps.create_account(login_user_request)
         account_from_db = Account.get_account_by_id(db_session, response.id)
 
