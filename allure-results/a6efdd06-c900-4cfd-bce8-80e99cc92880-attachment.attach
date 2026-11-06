@@ -1,1 +1,0 @@
-('{"error":"Password must contain at least one special character"}', 'Request body', <AttachmentType.JSON: ('application/json', 'json')>)

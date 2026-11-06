@@ -1,1 +1,0 @@
-User(id=1746, username=C9zgYydkQPXv0Lm, role=ROLE_USER, deleted_at=None)
