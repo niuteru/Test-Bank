@@ -1,0 +1,1 @@
+('{"error":"Password can only contain Latin letters, numbers and special characters"}', 'Request body', <AttachmentType.JSON: ('application/json', 'json')>)

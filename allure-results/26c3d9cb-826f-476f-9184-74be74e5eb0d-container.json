@@ -1,0 +1,1 @@
+{"uuid": "02264f50-938c-4a12-bf77-f8bfa2f4d03d", "children": ["5eef870a-7805-4792-a178-050a75d7ad58"], "befores": [{"name": "user_deposit_invalid_request", "status": "passed", "start": 1793962359926, "stop": 1793962359926}], "afters": [{"name": "user_deposit_invalid_request::<lambda>", "start": 1793962360336}], "start": 1793962359926, "stop": 1793962360336}
