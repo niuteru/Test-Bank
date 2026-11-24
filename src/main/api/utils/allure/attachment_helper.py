@@ -1,9 +1,6 @@
 from typing import Any
 
 import allure
-import sqlalchemy
-
-from src.main.api.db.base import Base
 
 
 class AttachmentHelper:

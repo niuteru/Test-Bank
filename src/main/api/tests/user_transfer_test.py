@@ -1,9 +1,9 @@
 import pytest
 from sqlalchemy.orm import Session
 
-from main.api.classes.api_manager import ApiManager
-from main.api.models.login_user_request import LoginUserRequest
-from main.api.models.user_transfer_request import UserTransferRequest
+from src.main.api.classes.api_manager import ApiManager
+from src.main.api.models.login_user_request import LoginUserRequest
+from src.main.api.models.user_transfer_request import UserTransferRequest
 from src.main.api.constans.transaction_type import TransactionType
 from src.main.api.db.crud.transaction_crud import TransactionCrud as Transaction
 from src.main.api.utils.allure.attachment_helper import AttachmentHelper

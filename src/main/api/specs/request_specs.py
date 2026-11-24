@@ -1,5 +1,6 @@
 import requests
 
+from src.main.api.configs.config import Config
 from src.main.api.models.login_user_request import LoginUserRequest
 from src.main.api.models.login_user_response import LoginUserResponse
 
@@ -17,7 +18,7 @@ class RequestSpecs:
         request = LoginUserRequest(username=username, password=password)
         headers = RequestSpecs.base_headers()
         response = requests.post(
-            url="http://localhost:4111/api/auth/token/login",
+            url=f"{Config.fetch('backendUrl')}/api/auth/token/login",
             json=request.model_dump(),
             headers=headers
         )

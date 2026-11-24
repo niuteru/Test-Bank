@@ -1,6 +1,6 @@
 import pytest
 
-from main.api.classes.api_manager import ApiManager
+from src.main.api.classes.api_manager import ApiManager
 from src.main.api.constans.role import Roles
 from src.main.api.generators.model_generator import RandomModelGenerator
 from src.main.api.models.create_account_response import CreateAccountResponse

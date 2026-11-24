@@ -1,8 +1,7 @@
-import allure
 import pytest
 from requests import Session
 
-from main.api.classes.api_manager import ApiManager
+from src.main.api.classes.api_manager import ApiManager
 from src.main.api.constans.role import Roles
 from src.main.api.db.crud.user_crud import UserCrudDb as User
 from src.main.api.fixtures.db_fixture import db_session

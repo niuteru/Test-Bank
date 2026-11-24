@@ -2,8 +2,8 @@ import pytest
 
 from sqlalchemy.orm import Session
 
-from main.api.classes.api_manager import ApiManager
-from main.api.models.login_user_request import LoginUserRequest
+from src.main.api.classes.api_manager import ApiManager
+from src.main.api.models.login_user_request import LoginUserRequest
 from src.main.api.db.crud.account_crud import AccountCrud as Account
 from src.main.api.utils.allure.attachment_helper import AttachmentHelper
 
