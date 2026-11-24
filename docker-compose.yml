@@ -4,6 +4,19 @@ services:
     ports:
       - "4111:4111"
       - "5432:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "localhost", "-p", "5432"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - bank-network
+
+  tests:
+    image: bank-tests
+    depends_on:
+      backend:
+        condition: service_healthy
     networks:
       - bank-network
 

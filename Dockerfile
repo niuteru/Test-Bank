@@ -1,8 +1,8 @@
 FROM python:3.12-bookworm
 
 ARG TEST_PROFILE=api
-ARG BACKEND_URL=http://host.docker.internal:4111/api/
-ARG DATABASE_URL=postgresql+psycopg2://symfony:password@host.docker.internal:5432/symfony_db
+ARG BACKEND_URL=http://backend:4111/api/
+ARG DATABASE_URL=postgresql+psycopg2://symfony:password@backend:5432/symfony_db
 
 ENV TEST_PROFILE=${TEST_PROFILE}
 ENV BACKEND_URL=${BACKEND_URL}
